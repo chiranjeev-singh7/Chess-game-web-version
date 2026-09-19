@@ -1,0 +1,9 @@
+flask>=3.0
+flask-socketio>=5.3
+flask-sqlalchemy>=3.1
+psycopg2-binary>=2.9
+chess>=1.10
+gevent>=24.2
+gevent-websocket>=0.10.1
+gunicorn>=22.0
+pytest>=8.0

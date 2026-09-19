@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chess Duel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <section id="lobby">
+      <h1>Chess Duel</h1>
+      <p class="tagline">Play a friend live from any device</p>
+      <div class="name-field">
+        <label for="usernameInput">YOUR NAME</label>
+        <div class="name-input-wrap">
+          <span class="name-icon">♙</span>
+          <input id="usernameInput" maxlength="30" placeholder="Enter your name" autocomplete="nickname" spellcheck="false">
+        </div>
+      </div>
+      <button id="createBtn" class="primary">Create online game</button>
+      <button id="aiBtn" class="secondary">Play vs computer</button>
+      <div class="divider"><span>or join with a code</span></div>
+      <div class="join-row">
+        <input id="codeInput" maxlength="5" placeholder="ROOM CODE" autocomplete="off" autocapitalize="characters" spellcheck="false">
+        <button id="joinBtn">Join</button>
+      </div>
+      <button id="historyBtn" class="history-btn">Game history</button>
+      <p id="lobbyError" class="error"></p>
+    </section>
+
+    <section id="game" hidden>
+      <div class="topbar">
+        <div class="room">
+          <span>Room</span>
+          <strong id="roomCode"></strong>
+          <button id="copyBtn">Copy code</button>
+        </div>
+        <button id="leaveBtn">Leave</button>
+      </div>
+      <div class="layout">
+        <div class="board-wrap">
+          <div class="player" id="opponentBar"><span class="dot"></span><span id="opponentLabel"></span></div>
+          <div id="board"></div>
+          <div class="player" id="youBar"><span class="dot"></span><span id="youLabel"></span></div>
+        </div>
+        <aside>
+          <div id="status"></div>
+          <div id="moves"></div>
+          <button id="resignBtn" class="danger">Resign</button>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="promo" class="modal" hidden>
+    <div class="modal-card">
+      <p>Promote pawn to</p>
+      <div id="promoChoices"></div>
+    </div>
+  </div>
+  <div id="historyModal" class="modal" hidden>
+    <div class="modal-card history-card">
+      <div class="history-head"><h2>Game History</h2><button id="historyClose">Close</button></div>
+      <div id="historyList"></div>
+    </div>
+  </div>
+  <div id="toast"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
